@@ -35,7 +35,6 @@ const stats = [
 const heroServices = [
   'Corporate HSE Training',
   'Safety Consultancy',
-  'ISO Audits',
   'NEBOSH Preparation',
   'Industrial Safety Solutions',
 ]
@@ -44,18 +43,46 @@ const founderCredentials = [
   'M.Sc. in Occupational Health and Safety',
   'NEBOSH International Diploma (IDipNEBOSH)',
   'ISO 45001 Lead Auditor',
-  'IOSH Certified Professional',
 ]
 
 const chooseSafetrox = [
-  { icon: ShieldCheck, title: 'Practical HSE Training', description: 'Real workplace examples that make safety learning stick.' },
-  { icon: BookOpenCheck, title: 'Interview Focus', description: 'Structured prep that helps you speak clearly and confidently.' },
-  { icon: CheckCircle2, title: 'Quiz Practice', description: 'Interactive questions that strengthen recall and understanding.' },
-  { icon: ClipboardCheck, title: 'Diploma Learning', description: 'A clear path for building strong safety fundamentals.' },
-  { icon: Users, title: 'Expert Guidance', description: 'Support from an experienced HSE trainer with industry exposure.' },
-  { icon: Award, title: 'Certificate Ready', description: 'Progress that supports interviews, career growth, and recognition.' },
+  {
+    icon: ShieldCheck,
+    title: 'Practical HSE Training',
+    description: 'Real workplace examples that make safety learning stick.',
+    image: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=900&q=80',
+  },
+  {
+    icon: BookOpenCheck,
+    title: 'Interview Focus',
+    description: 'Structured prep that helps you speak clearly and confidently.',
+    image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=80',
+  },
+  {
+    icon: CheckCircle2,
+    title: 'Quiz Practice',
+    description: 'Interactive questions that strengthen recall and understanding.',
+    image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80',
+  },
+  {
+    icon: ClipboardCheck,
+    title: 'Diploma Learning',
+    description: 'A clear path for building strong safety fundamentals.',
+    image: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=900&q=80',
+  },
+  {
+    icon: Users,
+    title: 'Expert Guidance',
+    description: 'Support from an experienced HSE trainer with industry exposure.',
+    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=900&q=80',
+  },
+  {
+    icon: Award,
+    title: 'Certificate Ready',
+    description: 'Progress that supports interviews, career growth, and recognition.',
+    image: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=900&q=80',
+  },
 ]
-
 const certifications = [
   '(M.Sc.) in Occuaptional Health & Safety',
   'NEBOSH International Diploma (IDip)',
@@ -67,34 +94,19 @@ const certifications = [
   'Advanced Diploma in Industrial Safety',
 ]
 
-const industries = [
-  'ADNOC',
-  'ADNOC Gas',
-  'ADNOC Onshore',
-  'ADNOC Offshore',
-  'Borouge',
-  'Haliba Petroleum',
-  'NMDC Energy',
-  'OILSERV',
-  'Descon Engineering',
-  'Reliance Industries',
-  'Nayara Energy',
-  'HPCL',
-  'Sulzer',
-  'EMDAD Services',
-]
 
 const services = [
+ 
   {
-    title: 'HSE Interview Preparation',
-    text: 'Build confidence for interviews with focused preparation, practical responses, and professional guidance.',
-    items: ['Interview readiness', 'Career guidance', 'Certificate support'],
+    title: 'Advance Safety Diploma',
+    text: 'Structured diploma-level training for learners who want a strong foundation in occupational health and safety.',
+    items: ['Core safety concepts', 'Professional learning', 'Certificate-ready training'],
     details: {
-      price: '₹2,999',
-      duration: 'Up to 10 classes',
+      price: '₹7,999',
+      duration: 'Up to 20 classes',
       schedule: 'Weekends',
-      format: 'Live coaching + interview practice',
-      highlights: ['Mock interviews', 'Answer framing', 'Confidence building'],
+      format: 'Structured modules + support',
+      highlights: ['Industry-focused modules', 'Certificate guidance', 'Exam preparation'],
     },
   },
   {
@@ -111,16 +123,16 @@ const services = [
       highlights: ['Instant review', 'Score analysis', 'Interview readiness'],
     },
   },
-  {
-    title: 'Safety Diploma',
-    text: 'Structured diploma-level training for learners who want a strong foundation in occupational health and safety.',
-    items: ['Core safety concepts', 'Professional learning', 'Certificate-ready training'],
+   {
+    title: 'HSE Interview Preparation',
+    text: 'Build confidence for interviews with focused preparation, practical responses, and professional guidance.',
+    items: ['Interview readiness', 'Career guidance', 'Certificate support'],
     details: {
-      price: '₹7,999',
-      duration: 'Up to 20 classes',
+      price: '₹2,999',
+      duration: 'Up to 10 classes',
       schedule: 'Weekends',
-      format: 'Structured modules + support',
-      highlights: ['Industry-focused modules', 'Certificate guidance', 'Exam preparation'],
+      format: 'Live coaching + interview practice',
+      highlights: ['Mock interviews', 'Answer framing', 'Confidence building'],
     },
   },
 ]
@@ -176,89 +188,7 @@ const quizTests = [
   },
 ]
 
-const documentation = [
-  'HSE Plans',
-  'Risk Assessment',
-  'Method Statements',
-  'Emergency Response Plan',
-  'Safety Procedures',
-  'Permit to Work',
-  'Toolbox Talk Documents',
-]
 
-const inspections = [
-  'Fire Safety',
-  'Electrical Safety',
-  'Working at Height',
-  'Confined Space',
-  'Scaffolding',
-  'Lifting Operations',
-  'Permit to Work',
-]
-
-const trainingPrograms = [
-  'NEBOSH International General Certificate (IGC)',
-  'NEBOSH International Diploma Preparation',
-  'IOSH Managing Safely',
-  'OSHA 30 Hours Construction Safety',
-  'ISO 45001 Lead Auditor Training',
-  'HSE Officer Training',
-  'Safety Supervisor Training',
-  'Fire Safety',
-  'Work at Height',
-  'Confined Space Entry',
-  'Permit to Work (PTW)',
-  'Lockout Tagout (LOTO)',
-  'Job Safety Analysis (JSA)',
-  'Hazard Identification & Risk Assessment (HIRA)',
-  'Incident Investigation',
-  'Behaviour Based Safety (BBS)',
-  'H2S Awareness',
-  'First Aid & CPR',
-  'Emergency Response',
-  'Toolbox Talk',
-  'PPE Management',
-  'Electrical Safety',
-  'Chemical Safety',
-  'Construction Safety',
-  'Oil & Gas Safety',
-  'Industrial Safety',
-  'Defensive Driving Safety',
-  'Heat Stress Management',
-  'Contractor Safety Management',
-  'Safety Leadership',
-  'Safety Culture Development',
-]
-
-const consultancyServices = [
-  'ISO 45001 Certification',
-  'Safety Documentation',
-  'HSE Manual Preparation',
-  'Risk Assessment',
-  'Internal Audits',
-  'Mock Audits',
-  'Compliance Support',
-  'Corporate Safety Programs',
-]
-
-const achievements = [
-  'Appreciation from ADNOC Gas',
-  'Appreciation from Borouge',
-  'Appreciation from EMDAD',
-  'Multiple Turnaround Project Successes',
-  '100% HSE Objective Achievement',
-  'Beat The Heat Campaign Recognition',
-]
-
-const experience = [
-  'OILSERV',
-  'NMDC Energy',
-  'EMDAD Services',
-  'Descon Engineering',
-  'Sulzer',
-  'Akshar Fire & Services',
-  'Ravi Raj Infra',
-]
 
 const testimonials = [
   {
@@ -335,37 +265,20 @@ const contactMethods = [
   },
 ]
 
+import trainingImage1 from './assets/Training Image-1.jpg'
+import trainingImage2 from './assets/Training Image-2.jpg'
+import trainingImage3 from './assets/Training Image-3.jpg'
+import trainingImage4 from './assets/Training Image-4.jpg'
+import trainingImage5 from './assets/Training Image-5.jpg'
+import trainingImage6 from './assets/Training Image-6.jpg'
+
 const gallery = [
-  {
-    title: 'Industrial Training',
-    image:
-      'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=900&q=82',
-  },
-  {
-    title: 'Classroom Sessions',
-    image:
-      'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=82',
-  },
-  {
-    title: 'Site Inspections',
-    image:
-      'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=900&q=82',
-  },
-  {
-    title: 'Safety Campaigns',
-    image:
-      'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=900&q=82',
-  },
-  {
-    title: 'Certifications',
-    image:
-      'https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?auto=format&fit=crop&w=900&q=82',
-  },
-  {
-    title: 'Award Ceremonies',
-    image:
-      'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=900&q=82',
-  },
+  { title: 'Industrial Training', image: trainingImage1 },
+  { title: 'Classroom Sessions', image: trainingImage2 },
+  { title: 'Site Inspections', image: trainingImage3 },
+  { title: 'Safety Campaigns', image: trainingImage4 },
+  { title: 'Certifications', image: trainingImage5 },
+  { title: 'Award Ceremonies', image: trainingImage6 },
 ]
 
 const safetyNews = [
@@ -584,8 +497,8 @@ function HomePage() {
           <div className="mini-grid">
             <div>
               <Award size={24} />
-              <strong>ADNOC Approved</strong>
-              <span>HSE professional</span>
+              <strong>Groups</strong>
+              <span>Engineer</span>
             </div>
             <div>
               <Globe2 size={24} />
@@ -679,26 +592,43 @@ function HomePage() {
       </div>
       </section>
 
-      <section className="section" id="why">
-        <div className="section-heading">
-          <p className="eyebrow">Why choose Safetrox</p>
-          <h2>Practical HSE learning designed to build confidence, readiness, and career growth.</h2>
-        </div>
-        <div className="why-grid">
-          {chooseSafetrox.map((reason) => {
-            const Icon = reason.icon
-            return (
-              <article className="feature-card compact-card why-tile" key={reason.title}>
-                <div className="why-tile-icon" aria-hidden="true">
-                  <Icon size={22} />
-                </div>
-                <h3>{reason.title}</h3>
-                <p>{reason.description}</p>
-              </article>
-            )
-          })}
-        </div>
-      </section>
+     <section className="section" id="why">
+  <div className="section-heading">
+    <p className="eyebrow">Why Choose Safetrox</p>
+    <h2>
+      Practical HSE learning designed to build confidence, readiness, and
+      career growth.
+    </h2>
+  </div>
+
+  <div className="why-grid">
+    {chooseSafetrox.map((reason) => {
+      const Icon = reason.icon
+
+      return (
+        <article
+          key={reason.title}
+          className="feature-card compact-card why-tile"
+          style={{
+            backgroundImage: `linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url(${reason.image})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+          }}
+        >
+          <div className="why-tile-icon">
+            <Icon size={22} />
+          </div>
+
+          <div className="why-content">
+            <h3>{reason.title}</h3>
+            <p>{reason.description}</p>
+          </div>
+        </article>
+      )
+    })}
+  </div>
+</section>
 
       <section className="section certifications-section split-section" id="certificates">
         <div className="certification-copy">
@@ -803,18 +733,27 @@ function HomePage() {
       </section>
 
       <section className="section" id="gallery">
-        <div className="section-heading">
-          <p className="eyebrow">Gallery</p>
-          <h2>Moments from Safetrox training, site activities, and professional learning.</h2>
-        </div>
-        <div className="gallery-grid">
-          {gallery.map((item) => (
-            <div key={item.title} style={{ backgroundImage: `url(${item.image})` }}>
-              <span>{item.title}</span>
-            </div>
-          ))}
-        </div>
-      </section>
+  <div className="section-heading">
+    <p className="eyebrow">Gallery</p>
+    <h2>
+      Moments from Safetrox training, site activities, and professional learning.
+    </h2>
+  </div>
+
+  <div className="gallery-grid">
+    {gallery.map((item) => (
+      <div
+        key={item.title}
+        className="gallery-item"
+        style={{
+          backgroundImage: `url(${item.image})`,
+        }}
+      >
+        <span>{item.title}</span>
+      </div>
+    ))}
+  </div>
+</section>
 
       <section className="section news-section" id="news">
         <div className="section-heading">
