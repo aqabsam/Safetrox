@@ -1,6 +1,7 @@
 import {
   ArrowRight,
   Award,
+  BookOpenCheck,
   CheckCircle2,
   ClipboardCheck,
   Globe2,

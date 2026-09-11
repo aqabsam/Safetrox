@@ -14,7 +14,6 @@ npm run dev
 ```bash
 npm run build
 ```
-
 ## Firebase setup
 
 Create a `.env.local` file with the Firebase web app values:

@@ -25,21 +25,21 @@ function App() {
     <AuthProvider>
       <ContentProvider>
         <BrowserRouter basename={basename}>
-        <Routes>
-        <Route path="/" element={<Layout><HomePage /></Layout>} />
-        <Route path="/quiz" element={<Layout><QuizPage /></Layout>} />
-          <Route path="/quiz/test/:testNumber" element={<Layout><QuizTestPage /></Layout>} />
-        <Route path="/about" element={<Layout><AboutPage /></Layout>} />
-        <Route path="/services" element={<Layout><ServicesPage /></Layout>} />
-        <Route path="/advance-safety" element={<Layout><AdvancedSafetyPage /></Layout>} />
-        <Route path="/interview-preparation" element={<Layout><InterviewPreparationPage /></Layout>} />
-        <Route path="/recommendations" element={<Layout><RecommendationsPage /></Layout>} />
-        <Route path="/contact" element={<Layout><ContactPage /></Layout>} />
-        <Route path="/gallery" element={<Layout><GalleryPage /></Layout>} />
-        <Route path="/news" element={<Layout><NewsPage /></Layout>} />
-          <Route path="/account" element={<Layout><AccountPage /></Layout>} />
-          <Route path="/admin" element={<Layout><AdminPage /></Layout>} />
-        </Routes>
+          <Routes>
+            <Route path="/" element={<Layout><HomePage /></Layout>} />
+            <Route path="/quiz" element={<Layout><QuizPage /></Layout>} />
+            <Route path="/quiz/test/:testNumber" element={<Layout><QuizTestPage /></Layout>} />
+            <Route path="/about" element={<Layout><AboutPage /></Layout>} />
+            <Route path="/services" element={<Layout><ServicesPage /></Layout>} />
+            <Route path="/advance-safety" element={<Layout><AdvancedSafetyPage /></Layout>} />
+            <Route path="/interview-preparation" element={<Layout><InterviewPreparationPage /></Layout>} />
+            <Route path="/recommendations" element={<Layout><RecommendationsPage /></Layout>} />
+            <Route path="/contact" element={<Layout><ContactPage /></Layout>} />
+            <Route path="/gallery" element={<Layout><GalleryPage /></Layout>} />
+            <Route path="/news" element={<Layout><NewsPage /></Layout>} />
+            <Route path="/account" element={<Layout><AccountPage /></Layout>} />
+            <Route path="/admin" element={<Layout><AdminPage /></Layout>} />
+          </Routes>
         </BrowserRouter>
       </ContentProvider>
     </AuthProvider>
