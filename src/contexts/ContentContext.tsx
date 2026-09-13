@@ -25,7 +25,7 @@ const defaultContent: SiteContent = {
   siteName: 'Safetrox',
   tagline: 'For Safer Tomorrow',
   navItems: [
-    { name: 'Home', path: '/' }, { name: 'About', path: '/about' }, { name: 'Course Enquiry', path: '/services' },
+    { name: 'Home', path: '/' }, { name: 'About', path: '/about' }, { name: 'Services', path: '/services' },
     { name: 'Gallery', path: '/gallery' }, { name: 'Recommendations', path: '/recommendations' },
     { name: 'Quiz', path: '/quiz' }, { name: 'News', path: '/news' }, { name: 'Contact', path: '/contact' },
   ],

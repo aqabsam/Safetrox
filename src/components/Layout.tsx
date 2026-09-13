@@ -32,22 +32,22 @@ function AppLayout({ children }: { children: React.ReactNode }) {
         <nav className="nav-links" aria-label="Primary navigation">
           {navItems.map((item) => (
             <NavLink key={item.name} to={item.path} end={item.path === '/'}>
-              {item.path === '/services' ? 'Course Enquiry' : item.name}
+              {item.name}
             </NavLink>
           ))}
         </nav>
 
-        <Link className="header-action" to="/contact">Contact Enquiry</Link>
+        <Link className="header-action" to="/services">Course Enquiry</Link>
 
         {menuOpen ? (
           <nav className="mobile-menu-panel" aria-label="Mobile navigation" data-open="true">
             {navItems.map((item) => (
               <NavLink key={item.name} to={item.path} end={item.path === '/'} onClick={() => setMenuOpen(false)}>
-                {item.path === '/services' ? 'Course Enquiry' : item.name}
+                {item.name}
               </NavLink>
             ))}
             {!navItems.some((item) => item.path === '/admin') ? <NavLink to="/admin" onClick={() => setMenuOpen(false)}>Admin</NavLink> : null}
-            <Link className="mobile-contact-enquiry" to="/contact" onClick={() => setMenuOpen(false)}>Contact Enquiry</Link>
+            <Link className="mobile-contact-enquiry" to="/services" onClick={() => setMenuOpen(false)}>Course Enquiry</Link>
           </nav>
         ) : null}
       </header>

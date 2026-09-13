@@ -10,7 +10,7 @@ const initialContent = {
   siteName: 'Safetrox',
   tagline: 'For Safer Tomorrow',
   navItemsJson: JSON.stringify([
-    { name: 'Home', path: '/' }, { name: 'About', path: '/about' }, { name: 'Course Enquiry', path: '/services' },
+    { name: 'Home', path: '/' }, { name: 'About', path: '/about' }, { name: 'Services', path: '/services' },
     { name: 'Gallery', path: '/gallery' }, { name: 'Recommendations', path: '/recommendations' },
     { name: 'Quiz', path: '/quiz' }, { name: 'News', path: '/news' }, { name: 'Contact', path: '/contact' },
   ], null, 2),
