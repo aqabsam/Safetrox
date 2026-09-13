@@ -15,10 +15,7 @@ import aboutImage from '../assets/about.jpg'
 
 import trainingImage1 from '../assets/Training Image-1.jpg'
 import trainingImage2 from '../assets/Training Image-2.jpg'
-import trainingImage3 from '../assets/Training Image-3.jpg'
-import trainingImage4 from '../assets/Training Image-4.jpg'
 import trainingImage5 from '../assets/Training Image-5.jpg'
-import trainingImage6 from '../assets/Training Image-6.jpg'
 
 export const logo = safetroxLogo
 export const homePhoto = homeImage
@@ -269,10 +266,7 @@ export const contactMethods = [
 export const gallery = [
   { title: 'Industrial Training', image: trainingImage1 },
   { title: 'Classroom Sessions', image: trainingImage2 },
-  { title: 'Site Inspections', image: trainingImage3 },
-  { title: 'Safety Campaigns', image: trainingImage4 },
   { title: 'Training Workshops', image: trainingImage5 },
-  { title: 'Award Ceremonies', image: trainingImage6 },
 ] as const
 
 export const safetyNews = [

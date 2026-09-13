@@ -32,7 +32,7 @@ function AppLayout({ children }: { children: React.ReactNode }) {
         <nav className="nav-links" aria-label="Primary navigation">
           {navItems.map((item) => (
             <NavLink key={item.name} to={item.path} end={item.path === '/'}>
-              {item.name}
+              {item.path === '/services' ? 'Course Enquiry' : item.name}
             </NavLink>
           ))}
         </nav>
@@ -43,7 +43,7 @@ function AppLayout({ children }: { children: React.ReactNode }) {
           <nav className="mobile-menu-panel" aria-label="Mobile navigation" data-open="true">
             {navItems.map((item) => (
               <NavLink key={item.name} to={item.path} end={item.path === '/'} onClick={() => setMenuOpen(false)}>
-                {item.name}
+                {item.path === '/services' ? 'Course Enquiry' : item.name}
               </NavLink>
             ))}
             {!navItems.some((item) => item.path === '/admin') ? <NavLink to="/admin" onClick={() => setMenuOpen(false)}>Admin</NavLink> : null}

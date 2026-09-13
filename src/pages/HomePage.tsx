@@ -165,10 +165,6 @@ export default function HomePage() {
       <section className="section" id="why">
         <div className="section-heading">
           <p className="eyebrow">Why Choose Safetrox</p>
-          <h2>
-            Practical HSE learning designed to build confidence, readiness, and
-            career growth.
-          </h2>
         </div>
 
         <div className="why-grid">
@@ -180,7 +176,7 @@ export default function HomePage() {
                 key={reason.title}
                 className="feature-card compact-card why-tile"
                 style={{
-                  backgroundImage: `linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url(${reason.image})`,
+                  backgroundImage: `url(${reason.image})`,
                   backgroundSize: 'cover',
                   backgroundPosition: 'center',
                   backgroundRepeat: 'no-repeat',
@@ -326,9 +322,8 @@ export default function HomePage() {
           <p className="eyebrow">Contact Safetrox</p>
           <h2>Book training, request consultancy, or send a corporate inquiry.</h2>
           <p>
-            Reach Mohammed Shadab Sami directly for corporate HSE training,
-            safety consultancy, audits, NEBOSH preparation, and industrial
-            safety solutions.
+            Reach Mohammed Shadab Sami directly for Advance HSE Diploma level training,
+            career consultancy, HSE Interview Preparation, and NEBOSH preparation.
           </p>
           <div className="contact-socials">
             <a href="https://wa.me/918617750510" target="_blank" rel="noreferrer" aria-label="WhatsApp">

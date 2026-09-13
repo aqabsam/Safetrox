@@ -1,9 +1,11 @@
-import { ArrowRight, BadgeDollarSign } from 'lucide-react'
+import { ArrowRight, BadgeDollarSign, Download, Eye, FileText } from 'lucide-react'
 import { FaWhatsapp } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
 
 import { useContent } from '../contexts/ContentContext'
+import pocketGuide from '../Pocket Guide SafeTrox.pdf'
+import safetroxLogo from '../assets/LOGO.png'
 
 const WEB3FORMS_ACCESS_KEY = '0f0ac6aa-d9f6-4327-a777-feb95aec6e24'
 
@@ -100,6 +102,19 @@ export default function ServicesPage() {
           </article>
         ))}
       </div>
+
+      <section className="pocket-guide-section" aria-labelledby="pocket-guide-title">
+        <div className="pocket-guide-icon"><FileText size={30} /></div>
+        <div className="pocket-guide-copy">
+          <p className="eyebrow">Free resource</p>
+          <div className="pocket-guide-title-row"><h2 id="pocket-guide-title">Free Pocket Guide by SafeTrox</h2><img src={safetroxLogo} alt="SafeTrox" /></div>
+          <p>Keep essential HSE guidance close at hand. View the guide online or download it for quick reference whenever you need it.</p>
+        </div>
+        <div className="pocket-guide-actions">
+          <a className="secondary-button" href={pocketGuide} target="_blank" rel="noreferrer"><Eye size={18} /> View guide</a>
+          <a className="primary-button" href={pocketGuide} download="Pocket Guide SafeTrox.pdf"><Download size={18} /> Download guide</a>
+        </div>
+      </section>
 
       <section className="course-enquiry-section" aria-labelledby="course-enquiry-title">
         <div className="course-enquiry-copy">
