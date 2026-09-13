@@ -1,5 +1,5 @@
 import { ArrowLeft, ArrowRight, CheckCircle2 } from 'lucide-react'
-import { useState } from 'react'
+import { type CSSProperties, useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 
 import { quizTests } from '../data/siteData'
@@ -11,6 +11,14 @@ export default function QuizTestPage() {
   const [answers, setAnswers] = useState<Array<number | null>>(() => test.questions.map(() => null))
   const [submitted, setSubmitted] = useState(false)
   const score = answers.reduce((total, answer, index) => total + (answer === ((test.questions[index] as { answer?: number }).answer ?? 0) ? 1 : 0), 0)
+  const totalQuestions = test.questions.length
+  const incorrectCount = totalQuestions - score
+  const scorePercentage = totalQuestions ? Math.round((score / totalQuestions) * 100) : 0
+
+  useEffect(() => {
+    setAnswers(test.questions.map(() => null))
+    setSubmitted(false)
+  }, [testIndex, test.questions])
 
   const chooseAnswer = (questionIndex: number, optionIndex: number) => {
     if (submitted) return
@@ -31,7 +39,7 @@ export default function QuizTestPage() {
         const selected = answers[questionIndex]
         const isCorrect = selected === (item.answer ?? 0)
         return <li key={item.question}>
-          <strong>{questionIndex + 1}. {item.question}</strong>
+          <strong>{item.question}</strong>
           <div className="quiz-option-grid">
             {item.options.map((option, optionIndex) => <button key={option} className={`quiz-option${selected === optionIndex ? ' quiz-option--selected' : ''}${submitted && optionIndex === (item.answer ?? 0) ? ' quiz-option--correct' : ''}${submitted && selected === optionIndex && !isCorrect ? ' quiz-option--wrong' : ''}`} type="button" onClick={() => chooseAnswer(questionIndex, optionIndex)} disabled={submitted}><span>{String.fromCharCode(65 + optionIndex)}.</span> {option}</button>)}
           </div>
@@ -39,6 +47,6 @@ export default function QuizTestPage() {
         </li>
       })}
     </ol>
-    {!submitted ? <button className="primary-button quiz-submit" type="button" onClick={() => setSubmitted(true)}>Submit Test {testIndex + 1} <ArrowRight size={18} /></button> : <div className="quiz-focused-result"><CheckCircle2 size={24} /><div><strong>You scored {score} out of {test.questions.length}</strong><p>Review your answers above before continuing.</p></div><Link className="primary-button" to={testIndex < quizTests.length - 1 ? `/quiz/test/${testIndex + 2}` : '/quiz'}>{testIndex < quizTests.length - 1 ? 'Next test' : 'Back to quiz'} <ArrowRight size={18} /></Link></div>}
+    {!submitted ? <button className="primary-button quiz-submit" type="button" onClick={() => setSubmitted(true)}>Submit {test.title} <ArrowRight size={18} /></button> : <div className="quiz-focused-result"><div className="quiz-focused-summary"><CheckCircle2 size={24} /><div><strong>You scored {score} out of {totalQuestions}</strong><p>Review your answers above before continuing.</p></div></div><div className="quiz-pie-analysis" aria-label={`Result breakdown: ${score} correct and ${incorrectCount} wrong or unanswered`}><div className="quiz-pie-chart" style={{ '--correct-percentage': `${scorePercentage}%` } as CSSProperties}><span><strong>{scorePercentage}%</strong><small>accuracy</small></span></div><div className="quiz-pie-legend"><span><i className="quiz-pie-legend__correct" />Correct <strong>{score}</strong></span><span><i className="quiz-pie-legend__incorrect" />Wrong / unanswered <strong>{incorrectCount}</strong></span></div></div><Link className="primary-button" to={testIndex < quizTests.length - 1 ? `/quiz/test/${testIndex + 2}` : '/quiz'}>{testIndex < quizTests.length - 1 ? 'Next test' : 'Back to quiz'} <ArrowRight size={18} /></Link></div>}
   </section>
 }

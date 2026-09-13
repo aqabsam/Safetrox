@@ -1,8 +1,8 @@
-import { ArrowRight, Award, BookOpenCheck, CheckCircle2, ClipboardCheck, Globe2, Headphones, Mail, MapPin, MessageCircle, Send, ShieldCheck, Star, Users } from 'lucide-react'
+import { ArrowRight, Award, BadgeDollarSign, BookOpenCheck, CheckCircle2, ClipboardCheck, Globe2, Headphones, Mail, MapPin, MessageCircle, Send, ShieldCheck, Star } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
 
-import { aboutPhoto, chooseSafetrox, founderCredentials, gallery, heroServices, homePhoto, safetyNews, sampleCertificate } from '../data/siteData'
+import { aboutPhoto, chooseSafetrox, founderCredentials, gallery, heroServices, homePhoto, safetyNews } from '../data/siteData'
 import { useContent } from '../contexts/ContentContext'
 
 const WEB3FORMS_ACCESS_KEY = '0f0ac6aa-d9f6-4327-a777-feb95aec6e24'
@@ -80,7 +80,6 @@ export default function HomePage() {
               <p>Founder & Lead Trainer</p>
               <h2>{founderName}</h2>
             </div>
-            <span className="live-pill">CSP</span>
           </div>
           <div className="credential-list">
             {founderCredentials.map((credential) => (
@@ -92,23 +91,12 @@ export default function HomePage() {
           <div className="mini-grid">
             <div>
               <Award size={24} />
-              <strong>Groups</strong>
-              <span>Engineer</span>
+              <strong>Reach ADNOC (Oil &amp; Gas) Experience</strong>
             </div>
             <div>
               <Globe2 size={24} />
               <strong>UAE & India</strong>
               <span>Project exposure</span>
-            </div>
-            <div>
-              <ClipboardCheck size={24} />
-              <strong>ISO Audits</strong>
-              <span>45001 systems</span>
-            </div>
-            <div>
-              <Users size={24} />
-              <strong>Corporate Teams</strong>
-              <span>Training delivery</span>
             </div>
           </div>
         </div>
@@ -130,7 +118,7 @@ export default function HomePage() {
                 Quiz Sessions, and HSE Interview Preparation so learners can grow with confidence.
               </p>
               <p>
-                Whether you are preparing for certification, improving workplace readiness,
+                Whether you are preparing for a safety career, improving workplace readiness,
                 or strengthening your team’s HSE awareness, Safetrox offers a supportive and professional learning experience.
               </p>
             </div>
@@ -141,7 +129,7 @@ export default function HomePage() {
               </div>
               <div className="about-spot">
                 <strong>Career-focused support</strong>
-                <span>Clear guidance for interviews, certifications, and growth.</span>
+                <span>Clear guidance for interviews, skills, and professional growth.</span>
               </div>
             </div>
           </div>
@@ -212,34 +200,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section certifications-section split-section" id="certificates">
-        <div className="certification-copy">
-          <p className="eyebrow">Certificate Programs</p>
-          <h2>Recognized learning with a certificate of completion.</h2>
-          <div className="certification-feature-box">
-            <div className="certification-feature-item">
-              <strong>Career-ready learning</strong>
-              <span>Build confidence for interviews, workplace readiness, and professional growth.</span>
-            </div>
-            <div className="certification-feature-item">
-              <strong>Practical HSE knowledge</strong>
-              <span>Strengthen your foundation through structured training in interview prep, quizzes, and diploma content.</span>
-            </div>
-            <div className="certification-feature-item">
-              <strong>Proof of achievement</strong>
-              <span>Receive a certificate that reflects your commitment, learning progress, and industry readiness.</span>
-            </div>
-          </div>
-        </div>
-        <div className="certificate-preview-card">
-          <div className="certificate-preview-header">
-            <span className="certificate-badge">Sample certificate</span>
-            <h3>Professional recognition</h3>
-          </div>
-          <img src={sampleCertificate} alt="Sample certificate preview" />
-        </div>
-      </section>
-
       <section className="section" id="services">
         <div className="section-heading">
           <p className="eyebrow">Services</p>
@@ -260,7 +220,8 @@ export default function HomePage() {
               </div>
               {service.details ? (
                 <div className="program-card-details">
-                  <strong>{service.details.price}</strong>
+                  <strong className="program-card-premium-label"><BadgeDollarSign size={19} /> Premium Course</strong>
+                  <span className="program-card-price-note">You will know the price after filling the enquiry form.</span>
                   <ul>
                     <li>Classes: {service.details.duration}</li>
                     <li>Schedule: {service.details.schedule}</li>

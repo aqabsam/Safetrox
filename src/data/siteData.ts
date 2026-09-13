@@ -12,7 +12,6 @@ import { additionalPremiumQuestions } from './additionalPremiumQuestions'
 import safetroxLogo from '../assets/LOGO.png'
 import homeImage from '../assets/home.jpeg'
 import aboutImage from '../assets/about.jpg'
-import certificateSample from '../assets/AMRITA RAO SAMPLE CERTIFICATE.png'
 
 import trainingImage1 from '../assets/Training Image-1.jpg'
 import trainingImage2 from '../assets/Training Image-2.jpg'
@@ -24,7 +23,6 @@ import trainingImage6 from '../assets/Training Image-6.jpg'
 export const logo = safetroxLogo
 export const homePhoto = homeImage
 export const aboutPhoto = aboutImage
-export const sampleCertificate = certificateSample
 
 export const stats = [
   ['9+', 'Years industrial experience'],
@@ -42,8 +40,10 @@ export const heroServices = [
 
 export const founderCredentials = [
   'M.Sc. in Occupational Health and Safety',
-  'NEBOSH International Diploma (IDipNEBOSH)',
+  'Certified Safety Professional (CSP-BCSP)',
+  'NEBOSH International Diploma (IDipNEBOSH - Level 6)',
   'ISO 45001 Lead Auditor',
+  'More than 10+ ADNOC Groups Approvals',
 ]
 
 export const chooseSafetrox = [
@@ -79,22 +79,11 @@ export const chooseSafetrox = [
   },
   {
     icon: Award,
-    title: 'Certificate Ready',
-    description: 'Progress that supports interviews, career growth, and recognition.',
+    title: 'Career Growth',
+    description: 'Progress that supports interviews and professional growth.',
     image: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=900&q=80',
   },
 ] as const
-
-export const certifications = [
-  '(M.Sc.) in Occuaptional Health & Safety',
-  'NEBOSH International Diploma (IDip)',
-  'NEBOSH IGC',
-  'IOSH',
-  'ISO 45001:2018 Lead Auditor',
-  'OSHA 30 Hours Construction Safety',
-  'Accident Investigation (AOSH)',
-  'Advanced Diploma in Industrial Safety',
-]
 
 type ServiceItem = {
   title: string
@@ -115,15 +104,15 @@ export const services: ServiceItem[] = [
   {
     title: 'Advance Safety Diploma',
     text: 'Structured diploma-level training for learners who want a strong foundation in occupational health and safety.',
-    items: ['Core safety concepts', 'Professional learning', 'Certificate-ready training'],
+    items: ['Core safety concepts', 'Professional learning', 'Career-ready training'],
     link: '/advance-safety',
     actionLabel: 'Open course',
     details: {
-      price: '₹7,999',
-      duration: 'Up to 20 classes',
+      price: 'Premium Course',
+      duration: '15-20 classes',
       schedule: 'Weekends',
       format: 'Structured modules + support',
-      highlights: ['Industry-focused modules', 'Certificate guidance', 'Exam preparation'],
+      highlights: ['Industry-focused modules', 'Expert guidance', 'Exam preparation'],
     },
   },
   {
@@ -133,7 +122,7 @@ export const services: ServiceItem[] = [
     link: '/quiz',
     actionLabel: 'Open Quiz',
     details: {
-      price: '₹999',
+      price: 'Premium Course',
       duration: '3 practice tests',
       schedule: 'Flexible',
       format: 'Self-paced MCQ practice',
@@ -143,12 +132,12 @@ export const services: ServiceItem[] = [
   {
     title: 'HSE Interview Preparation',
     text: 'Build confidence for interviews with focused preparation, practical responses, and professional guidance.',
-    items: ['Interview readiness', 'Career guidance', 'Certificate support'],
+    items: ['Interview readiness', 'Career guidance', 'Professional support'],
     link: '/interview-preparation',
     actionLabel: 'View live sessions',
     details: {
-      price: '₹2,999',
-      duration: 'Up to 10 classes',
+      price: 'Premium Course',
+      duration: '3-5 classes',
       schedule: 'Weekends',
       format: 'Live coaching + interview practice',
       highlights: ['Mock interviews', 'Answer framing', 'Confidence building'],
@@ -158,7 +147,7 @@ export const services: ServiceItem[] = [
 
 export const quizTests = [
   {
-    title: 'Test 1 - Basic HSE Interview Questions',
+    title: 'Quiz 1',
     subtitle: 'Core safety awareness for freshers and early-career professionals.',
     questions: [
       { question: 'What does PPE stand for?', options: ['Personal Protective Equipment', 'Personal Protection Equipment', 'Professional Protective Equipment', 'Public Protection Equipment'] },
@@ -174,7 +163,7 @@ export const quizTests = [
     ],
   },
   {
-    title: 'Test 2 - Entry-Level HSE Field Judgment',
+    title: 'Quiz Level 2',
     subtitle: 'Practical questions on confined spaces, permits, lifting, LOTO, and fall prevention.',
     questions: [
       { question: 'During confined space entry, oxygen is found at 20.0%. What is the most appropriate action?', options: ['Allow entry because oxygen is above 19.5%', 'Start work with continuous gas monitoring', 'Improve ventilation and verify the atmosphere before entry', 'Allow entry with SCBA only without further action'], answer: 2 },
@@ -282,7 +271,7 @@ export const gallery = [
   { title: 'Classroom Sessions', image: trainingImage2 },
   { title: 'Site Inspections', image: trainingImage3 },
   { title: 'Safety Campaigns', image: trainingImage4 },
-  { title: 'Certifications', image: trainingImage5 },
+  { title: 'Training Workshops', image: trainingImage5 },
   { title: 'Award Ceremonies', image: trainingImage6 },
 ] as const
 

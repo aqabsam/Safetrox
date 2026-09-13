@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 import { premiumQuestions, quizTests } from '../data/siteData'
 import { useContent } from '../contexts/ContentContext'
 
-const PREMIUM_CODE = '1234'
+const PREMIUM_CODE = '8617799312'
 
 function getScore(items: readonly unknown[], selected: Array<number | null>) {
   return selected.reduce((score, answer, index) => {
@@ -199,10 +199,10 @@ export default function QuizPage() {
           <form className="quiz-code-form" onSubmit={(event) => { event.preventDefault(); handlePremiumUnlock() }}>
             <label htmlFor="premium-code">Access code</label>
             <div>
-              <input id="premium-code" inputMode="numeric" maxLength={4} placeholder="4-digit code" value={premiumCode} onChange={(event) => setPremiumCode(event.target.value.replace(/\D/g, ''))} />
+              <input id="premium-code" inputMode="numeric" maxLength={10} placeholder="10-digit code" value={premiumCode} onChange={(event) => setPremiumCode(event.target.value.replace(/\D/g, ''))} />
               <button className="primary-button" type="submit">Unlock <ArrowRight size={18} /></button>
             </div>
-            {premiumCode.length === 4 && premiumCode !== PREMIUM_CODE ? <small className="quiz-code-error">That code did not unlock the question bank.</small> : null}
+            {premiumCode.length === 10 && premiumCode !== PREMIUM_CODE ? <small className="quiz-code-error">That code did not unlock the question bank.</small> : null}
           </form>
         ) : null}
       </div>

@@ -1,35 +1,6 @@
-import { ArrowLeft, ArrowRight, BookOpenText, FileText, PlayCircle, Presentation } from 'lucide-react'
+import { ArrowLeft, BookOpenText, FileText } from 'lucide-react'
+import { SiGooglemeet, SiZoom } from 'react-icons/si'
 import { Link } from 'react-router-dom'
-
-const diplomaResources = [
-  {
-    icon: PlayCircle,
-    label: 'Video Lessons',
-    title: 'Watch practical safety modules',
-    text: 'Short lessons covering hazard identification, risk assessment, permits, and workplace controls.',
-    items: ['Hazard identification', 'Risk assessment', 'Permit to work'],
-    action: 'Find video lessons',
-    href: 'https://www.youtube.com/results?search_query=advanced+industrial+safety+diploma',
-  },
-  {
-    icon: Presentation,
-    label: 'PPT Modules',
-    title: 'Study presentation topics',
-    text: 'Presentation-ready topics organized for revision, classroom discussion, and instructor-led sessions.',
-    items: ['Industrial safety fundamentals', 'Fire and emergency response', 'Incident investigation'],
-    action: 'Request PPT modules',
-    href: 'mailto:safetroxhse@gmail.com?subject=Advance%20Safety%20Diploma%20PPT%20Modules',
-  },
-  {
-    icon: FileText,
-    label: 'Course Notes',
-    title: 'Follow a structured revision guide',
-    text: 'Use the course outline as a focused checklist for learning and exam preparation.',
-    items: ['Safety management systems', 'Occupational health', 'Audits and continual improvement'],
-    action: 'Jump to notes',
-    href: '#diploma-notes',
-  },
-]
 
 export default function AdvancedSafetyPage() {
   return (
@@ -43,40 +14,36 @@ export default function AdvancedSafetyPage() {
 
       <div className="diploma-course-meta">
         <span><strong>Format</strong> Structured modules + support</span>
-        <span><strong>Schedule</strong> Up to 20 classes</span>
+        <span><strong>Schedule</strong> 15-20 classes</span>
         <span><strong>Focus</strong> Industrial safety and controls</span>
       </div>
 
-      <div className="diploma-resource-grid diploma-course-resources">
-        {diplomaResources.map((resource) => {
-          const Icon = resource.icon
-          return (
-            <article className="diploma-resource-card" key={resource.label}>
-              <div className="diploma-resource-icon"><Icon size={22} /></div>
-              <p className="eyebrow">{resource.label}</p>
-              <h3>{resource.title}</h3>
-              <p>{resource.text}</p>
-              <ul>{resource.items.map((item) => <li key={item}>{item}</li>)}</ul>
-              <a className="program-card-action" href={resource.href} target={resource.href.startsWith('http') ? '_blank' : undefined} rel={resource.href.startsWith('http') ? 'noreferrer' : undefined}>
-                {resource.action} <ArrowRight size={16} />
-              </a>
-            </article>
-          )
-        })}
-      </div>
-
-      <div className="diploma-notes" id="diploma-notes">
-        <div>
-          <p className="eyebrow">Revision Notes</p>
-          <h3>Core learning path</h3>
+      <section className="diploma-delivery-panel" aria-labelledby="diploma-delivery-title">
+        <div className="diploma-delivery-heading">
+          <p className="eyebrow">Course delivery</p>
+          <h3 id="diploma-delivery-title">Learn with course PDFs, PPT presentations, and live video classes.</h3>
+          <p>We will provide the course PDF, and every live video class will be presented through PPT using Zoom, Google Meet, or Botim.</p>
         </div>
-        <ol>
-          <li><strong>Foundations:</strong> workplace hazards, legal duties, responsibilities, and safety culture.</li>
-          <li><strong>Risk control:</strong> risk assessment, hierarchy of controls, safe systems of work, and permits.</li>
-          <li><strong>Emergency readiness:</strong> fire prevention, emergency plans, drills, first response, and evacuation.</li>
-          <li><strong>Improvement:</strong> inspections, audits, incident learning, leading indicators, and corrective action.</li>
-        </ol>
-      </div>
+        <div className="diploma-delivery-options">
+          <div className="diploma-delivery-option diploma-delivery-option--pdf">
+            <div className="diploma-delivery-logo diploma-delivery-logo--pdf"><FileText size={26} /></div>
+            <div><strong>Course PDF</strong><span>Structured notes and learning material provided for the full course.</span></div>
+          </div>
+          <div className="diploma-delivery-option">
+            <div className="diploma-delivery-logo diploma-delivery-logo--zoom"><SiZoom size={28} title="Zoom logo" /></div>
+            <div><strong>Zoom</strong><span>Live interactive classes with trainer guidance.</span></div>
+          </div>
+          <div className="diploma-delivery-option">
+            <div className="diploma-delivery-logo diploma-delivery-logo--meet"><SiGooglemeet size={28} title="Google Meet logo" /></div>
+            <div><strong>Google Meet</strong><span>Join live lessons from your phone or computer.</span></div>
+          </div>
+          <div className="diploma-delivery-option">
+            <div className="diploma-delivery-logo diploma-delivery-logo--botim"><img src="https://botim.me/favicon.ico" alt="Botim logo" /></div>
+            <div><strong>Botim</strong><span>Another option for joining live video sessions.</span></div>
+          </div>
+        </div>
+      </section>
+
     </section>
   )
 }

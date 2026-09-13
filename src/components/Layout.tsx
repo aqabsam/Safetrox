@@ -2,12 +2,10 @@ import { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 
 import { logo } from '../data/siteData'
-import { useAuth } from '../contexts/AuthContext'
 import { useContent } from '../contexts/ContentContext'
 
 function AppLayout({ children }: { children: React.ReactNode }) {
   const [menuOpen, setMenuOpen] = useState(false)
-  const { user } = useAuth()
   const { siteName, tagline, navItems, footerText, footerCtaTitle, footerCtaText } = useContent()
 
   return (
@@ -39,6 +37,8 @@ function AppLayout({ children }: { children: React.ReactNode }) {
           ))}
         </nav>
 
+        <Link className="header-action" to="/contact">Contact Enquiry</Link>
+
         {menuOpen ? (
           <nav className="mobile-menu-panel" aria-label="Mobile navigation" data-open="true">
             {navItems.map((item) => (
@@ -47,13 +47,9 @@ function AppLayout({ children }: { children: React.ReactNode }) {
               </NavLink>
             ))}
             {!navItems.some((item) => item.path === '/admin') ? <NavLink to="/admin" onClick={() => setMenuOpen(false)}>Admin</NavLink> : null}
-            <Link to="/account" onClick={() => setMenuOpen(false)} className="mobile-cta">
-              {user ? 'My account' : 'Sign in / Sign up'}
-            </Link>
+            <Link className="mobile-contact-enquiry" to="/contact" onClick={() => setMenuOpen(false)}>Contact Enquiry</Link>
           </nav>
         ) : null}
-
-        <Link className="account-link" to="/account">{user ? 'My account' : 'Sign in / Sign up'}</Link>
       </header>
 
       {children}
@@ -75,7 +71,6 @@ function AppLayout({ children }: { children: React.ReactNode }) {
             <Link to="/about">About Safetrox</Link>
             <Link to="/about">Why Choose Safetrox</Link>
             <Link to="/services">Services</Link>
-            <Link to="/services">Certificate Programs</Link>
             <Link to="/recommendations">Recommendations</Link>
             <Link to="/contact">Contact</Link>
             <Link to="/admin">Admin</Link>

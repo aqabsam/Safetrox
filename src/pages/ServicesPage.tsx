@@ -1,33 +1,59 @@
-import { ArrowRight } from 'lucide-react'
-import { Link, useNavigate } from 'react-router-dom'
+import { ArrowRight, BadgeDollarSign } from 'lucide-react'
+import { FaWhatsapp } from 'react-icons/fa'
+import { Link } from 'react-router-dom'
 import { useState } from 'react'
 
-import { sampleCertificate } from '../data/siteData'
-import { useAuth } from '../contexts/AuthContext'
 import { useContent } from '../contexts/ContentContext'
-import { createEnrollment } from '../firebaseData'
+
+const WEB3FORMS_ACCESS_KEY = '0f0ac6aa-d9f6-4327-a777-feb95aec6e24'
 
 export default function ServicesPage() {
-  const { user } = useAuth()
   const { services } = useContent()
-  const navigate = useNavigate()
-  const [message, setMessage] = useState('')
-  const [busyTitle, setBusyTitle] = useState('')
+  const [result, setResult] = useState('')
+  const [isSending, setIsSending] = useState(false)
+  const [selectedCourses, setSelectedCourses] = useState<string[]>([])
 
-  const enrol = async (title: string) => {
-    if (!user) {
-      navigate('/account')
+  const handleEnquirySubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    if (selectedCourses.length === 0) {
+      setResult('Please select at least one course.')
       return
     }
-    setBusyTitle(title)
-    setMessage('')
+    setIsSending(true)
+    setResult('')
+
+    const form = event.currentTarget
+    const formData = new FormData(form)
+    const whatsappMessage = [
+      'New Safetrox course enquiry',
+      `Name: ${formData.get('name') ?? ''}`,
+      `Location: ${formData.get('location') ?? ''}`,
+      `Qualification: ${formData.get('qualification') ?? ''}`,
+      `Phone: ${formData.get('phone') ?? ''}`,
+      `Email: ${formData.get('email') ?? ''}`,
+      `Course(s): ${formData.getAll('courses').join(', ')}`,
+    ].join('\n')
+    window.open(`https://wa.me/918617750510?text=${encodeURIComponent(whatsappMessage)}`, '_blank', 'noopener,noreferrer')
+    formData.append('access_key', WEB3FORMS_ACCESS_KEY)
+    formData.append('subject', 'New Safetrox course enquiry')
+    formData.append('from_name', 'Safetrox Course Enquiry')
+    formData.append('selected_courses', formData.getAll('courses').join(', '))
+
     try {
-      await createEnrollment(user.uid, title)
-      setMessage(`Your enrolment request for ${title} was sent. We will contact you with payment and schedule details.`)
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData,
+      })
+      const data = await response.json()
+      setResult(data.success ? 'Enquiry sent successfully. The Safetrox team will contact you soon.' : data.message || 'Unable to send your enquiry. Please try again.')
+      if (data.success) {
+        form.reset()
+        setSelectedCourses([])
+      }
     } catch {
-      setMessage('Unable to save your enrolment request. Please check your Firebase setup.')
+      setResult('Unable to send your enquiry. Please check your connection and try again.')
     } finally {
-      setBusyTitle('')
+      setIsSending(false)
     }
   }
 
@@ -53,7 +79,8 @@ export default function ServicesPage() {
             </div>
             {service.details ? (
               <div className="program-card-details">
-                <strong>{service.details.price}</strong>
+                <strong className="program-card-premium-label"><BadgeDollarSign size={19} /> Premium Course</strong>
+                <span className="program-card-price-note">You will know the price after filling the enquiry form.</span>
                 <ul>
                   <li>Classes: {service.details.duration}</li>
                   <li>Schedule: {service.details.schedule}</li>
@@ -67,40 +94,42 @@ export default function ServicesPage() {
             {service.link ? (
               <div className="program-card-actions">
                 <Link className="program-card-action" to={service.link}>{service.actionLabel} <ArrowRight size={16} /></Link>
-                <button className="secondary-button" type="button" onClick={() => void enrol(service.title)} disabled={busyTitle === service.title}>{busyTitle === service.title ? 'Sending...' : 'Enrol now'}</button>
+                <Link className="secondary-button" to="/contact">Enrol now</Link>
               </div>
             ) : null}
           </article>
         ))}
       </div>
-      {message ? <p className="form-message">{message}</p> : null}
 
-      <section className="section certifications-section split-section" id="certificates">
-        <div className="certification-copy">
-          <p className="eyebrow">Certificate Programs</p>
-          <h2>Recognized learning with a certificate of completion.</h2>
-          <div className="certification-feature-box">
-            <div className="certification-feature-item">
-              <strong>Career-ready learning</strong>
-              <span>Build confidence for interviews, workplace readiness, and professional growth.</span>
-            </div>
-            <div className="certification-feature-item">
-              <strong>Practical HSE knowledge</strong>
-              <span>Strengthen your foundation through structured training in interview prep, quizzes, and diploma content.</span>
-            </div>
-            <div className="certification-feature-item">
-              <strong>Proof of achievement</strong>
-              <span>Receive a certificate that reflects your commitment, learning progress, and industry readiness.</span>
-            </div>
-          </div>
+      <section className="course-enquiry-section" aria-labelledby="course-enquiry-title">
+        <div className="course-enquiry-copy">
+          <p className="eyebrow">Course enquiry</p>
+          <h2 id="course-enquiry-title">Tell us how you want to learn.</h2>
+          <p>Share your details and select one or more courses. Our faculty will contact you with the premium course details, schedule, and fee.</p>
         </div>
-        <div className="certificate-preview-card">
-          <div className="certificate-preview-header">
-            <span className="certificate-badge">Sample certificate</span>
-            <h3>Professional recognition</h3>
+        <form className="course-enquiry-form" onSubmit={handleEnquirySubmit}>
+          <div className="course-enquiry-fields">
+            <label><span>Full name</span><input name="name" type="text" placeholder="Your name" required /></label>
+            <label><span>Location</span><input name="location" type="text" placeholder="City and country" required /></label>
+            <label><span>Qualification</span><input name="qualification" type="text" placeholder="Your qualification" required /></label>
+            <label><span>Phone number</span><input name="phone" type="tel" placeholder="Your phone number" required /></label>
+            <label><span>Email</span><input name="email" type="email" placeholder="your@email.com" required /></label>
           </div>
-          <img src={sampleCertificate} alt="Sample certificate preview" />
-        </div>
+          <fieldset className="course-selection-fieldset">
+            <legend>Select course(s)</legend>
+            <p>Choose one or more options.</p>
+            <div className="course-selection-options">
+              <label><input name="courses" type="checkbox" value="Advance Safety Diploma" checked={selectedCourses.includes('Advance Safety Diploma')} onChange={(event) => setSelectedCourses((current) => event.target.checked ? [...current, event.target.value] : current.filter((course) => course !== event.target.value))} /> <span>Advance Safety Diploma</span></label>
+              <label><input name="courses" type="checkbox" value="Quiz Session" checked={selectedCourses.includes('Quiz Session')} onChange={(event) => setSelectedCourses((current) => event.target.checked ? [...current, event.target.value] : current.filter((course) => course !== event.target.value))} /> <span>Quiz Session</span></label>
+              <label><input name="courses" type="checkbox" value="HSE Interview Preparations" checked={selectedCourses.includes('HSE Interview Preparations')} onChange={(event) => setSelectedCourses((current) => event.target.checked ? [...current, event.target.value] : current.filter((course) => course !== event.target.value))} /> <span>HSE Interview Preparations</span></label>
+            </div>
+          </fieldset>
+          <div className="course-enquiry-actions">
+            <button className="primary-button" type="submit" disabled={isSending}>{isSending ? 'Sending...' : 'Send course enquiry'} <ArrowRight size={18} /></button>
+            <a className="whatsapp-enquiry-button" href="https://wa.me/918617750510" target="_blank" rel="noreferrer"><FaWhatsapp size={19} /> Contact on WhatsApp</a>
+          </div>
+          {result ? <p className="course-enquiry-status" role="status">{result}</p> : null}
+        </form>
       </section>
     </section>
   )

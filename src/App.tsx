@@ -12,7 +12,6 @@ import NewsPage from './pages/NewsPage'
 import QuizPage from './pages/QuizPage'
 import RecommendationsPage from './pages/RecommendationsPage'
 import ServicesPage from './pages/ServicesPage'
-import AccountPage from './pages/AccountPage'
 import AdminPage from './pages/AdminPage'
 import QuizTestPage from './pages/QuizTestPage'
 import { AuthProvider } from './contexts/AuthContext'
@@ -37,7 +36,6 @@ function App() {
             <Route path="/contact" element={<Layout><ContactPage /></Layout>} />
             <Route path="/gallery" element={<Layout><GalleryPage /></Layout>} />
             <Route path="/news" element={<Layout><NewsPage /></Layout>} />
-            <Route path="/account" element={<Layout><AccountPage /></Layout>} />
             <Route path="/admin" element={<Layout><AdminPage /></Layout>} />
           </Routes>
         </BrowserRouter>

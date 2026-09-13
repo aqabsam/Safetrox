@@ -4,23 +4,18 @@ import { Link } from 'react-router-dom'
 const liveSessions = [
   {
     number: '01',
-    title: 'HSE interview fundamentals',
-    text: 'Understand common interview formats, role expectations, and how to introduce your experience clearly.',
+    title: 'ADNOC Groups Interview Preparation',
+    text: 'Prepare for ADNOC Groups interviews with role-focused questions, safety expectations, and clear professional introductions.',
   },
   {
     number: '02',
-    title: 'Technical answer practice',
-    text: 'Work through practical questions on risk assessment, permits, incident investigation, and emergency response.',
+    title: 'Oil & Gas Turnaround/EPC Projects Level',
+    text: 'Build confidence for Oil & Gas turnaround and EPC project interviews through practical HSE scenarios and project responsibilities.',
   },
   {
     number: '03',
-    title: 'Mock interview and feedback',
-    text: 'Complete a realistic interview with direct feedback on structure, confidence, and technical communication.',
-  },
-  {
-    number: '04',
-    title: 'Final readiness clinic',
-    text: 'Refine your CV story, prepare role-specific answers, and leave with a personal improvement plan.',
+    title: 'Technical Answer Practice',
+    text: 'Work through practical questions on risk assessment, permits, incident investigation, and emergency response.',
   },
 ]
 
@@ -31,7 +26,7 @@ export default function InterviewPreparationPage() {
       <div className="section-heading interview-course-hero">
         <p className="eyebrow"><Video size={15} /> HSE Interview Preparation</p>
         <h2>Focused live coaching for your next HSE interview.</h2>
-        <p>This course is delivered through live video sessions only. Join 3 to 5 interactive classes through Google Meet or Zoom and practise with direct trainer feedback.</p>
+        <p>This course is delivered through live video sess ions only. Join 3 to 5 interactive classes through Google Meet or Zoom and practise with direct trainer feedback.</p>
       </div>
 
       <div className="interview-platforms">

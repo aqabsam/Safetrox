@@ -23,7 +23,7 @@ export default function AboutPage() {
               Quiz Sessions, and HSE Interview Preparation so learners can grow with confidence.
             </p>
             <p>
-              Whether you are preparing for certification, improving workplace readiness,
+              Whether you are preparing for a safety career, improving workplace readiness,
               or strengthening your team’s HSE awareness, Safetrox offers a supportive and professional learning experience.
             </p>
           </div>
@@ -34,7 +34,7 @@ export default function AboutPage() {
             </div>
             <div className="about-spot">
               <strong>Career-focused support</strong>
-              <span>Clear guidance for interviews, certifications, and growth.</span>
+              <span>Clear guidance for interviews, skills, and professional growth.</span>
             </div>
           </div>
         </div>
